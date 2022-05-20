@@ -73,7 +73,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"raulq05_SonarCloud" /o:"raulq05" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build CRUD-NET-Core-TDD/IntegrationTests/CRUD-NETCore-TDD.csproj --configuration Release;
+          dotnet build CRUD-NET-Core-TDD\IntegrationTests\CRUD-NETCore-TDD.csproj --configuration Release;
           
-          dotnet test CRUD-NET-Core-TDD/IntegrationTests/CRUD-NETCore-TDD.Test/CRUD-NETCore-TDD.Tests.csproj --no-build --collect:"XPlat Code Coverage";
+          dotnet test CRUD-NET-Core-TDD\IntegrationTests\CRUD-NETCore-TDD.Test\CRUD-NETCore-TDD.Tests.csproj --no-build --collect:"XPlat Code Coverage";
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
